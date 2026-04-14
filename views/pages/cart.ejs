@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Carrito</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+<%- include('../partials/header') %>
+
+<main class="cart-container">
+
+    <h1>🛒 Tu carrito</h1>
+
+    <% if (cart.length > 0) { %>
+
+        <% cart.forEach(function(product, index) { %>
+
+            <div class="cart-item">
+                <img src="<%= product.img %>" alt="<%= product.name %>">
+
+                <div>
+                    <h3><%= product.name %></h3>
+                    <p>$<%= product.price %></p>
+
+                    <a href="/remove-from-cart/<%= index %>">
+                        ❌ Quitar
+                    </a>
+                </div>
+            </div>
+
+        <% }) %>
+
+    <% } else { %>
+
+        <p>El carrito está vacío</p>
+
+    <% } %>
+
+</main>
+
+<%- include('../partials/footer') %>
+
+</body>
+</html>

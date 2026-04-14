@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+<%- include('../partials/header') %>
+
+<main class="form-container">
+
+    <h1>Crear cuenta</h1>
+
+    <form class="form">
+        <input type="text" placeholder="Nombre" required>
+        <input type="email" placeholder="Email" required>
+        <input type="password" placeholder="Contraseña" required>
+
+        <button class="btn">Registrarse</button>
+    </form>
+
+    <p>¿Ya tenés cuenta? <a href="/login">Iniciar sesión</a></p>
+
+</main>
+
+<%- include('../partials/footer') %>
+
+</body>
+</html>

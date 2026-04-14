@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Botines Store</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <%- include('../partials/header') %>
+
+   <main>
+    <h1>Bienvenido a Botines Store ⚽</h1>
+
+    <section class="products">
+        <h2>Productos destacados</h2>
+
+        <div class="product-list">
+            <% products.forEach(product => { %>
+                <%- include('../partials/productCard', { product }) %>
+            <% }) %>
+        </div>
+    </section>
+</main>
+
+<%- include('../partials/footer') %>
+
+</body>
+</html>

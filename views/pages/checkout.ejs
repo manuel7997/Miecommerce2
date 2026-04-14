@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+<%- include('../partials/header') %>
+
+<main class="checkout-container">
+
+    <h1>💳 Finalizar compra</h1>
+
+    <form class="form">
+
+        <input type="text" placeholder="Nombre completo" required>
+        <input type="text" placeholder="Dirección" required>
+        <input type="text" placeholder="Ciudad" required>
+
+        <input type="text" placeholder="Número de tarjeta" required>
+        <input type="text" placeholder="Fecha de vencimiento" required>
+        <input type="text" placeholder="CVV" required>
+
+        <button class="btn">Pagar</button>
+
+    </form>
+
+</main>
+
+<%- include('../partials/footer') %>
+
+</body>
+</html>

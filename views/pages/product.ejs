@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title><%= product.name %></title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+<%- include('../partials/header') %>
+
+<main class="product-detail">
+
+    <div class="product-container">
+        <img src="<%= product.img %>" alt="<%= product.name %>">
+
+        <div class="info">
+            <h1><%= product.name %></h1>
+            <p class="price">$<%= product.price %></p>
+            <p><%= product.description %></p>
+
+            <a href="/add-to-cart/<%= product.id %>" class="btn">
+    🛒 Agregar al carrito
+</a>
+        </div>
+    </div>
+
+</main>
+
+<%- include('../partials/footer') %>
+
+</body>
+</html>
