@@ -1,4 +1,7 @@
 <div class="product-card">
+    <% if (product.stock === 0) { %>
+        <span class="badge-sin-stock">Sin stock</span>
+    <% } %>
     <img
         src="<%= (product.images && product.images[0]) ? product.images[0] : '/img/fallback.jpg' %>"
         alt="<%= product.name %>"
@@ -7,4 +10,9 @@
     <h3><%= product.name %></h3>
     <p class="price">$<%= product.price %></p>
     <a href="/product/<%= product.id %>" class="btn">Ver producto</a>
+    <% if (product.stock === 0) { %>
+        <button class="btn btn-disabled" disabled>🚫 Sin stock</button>
+    <% } else { %>
+        <a href="/add-to-cart/<%= product.id %>" class="btn">🛒 Agregar al carrito</a>
+    <% } %>
 </div>

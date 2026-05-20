@@ -1,11 +1,10 @@
-const products = require('../models/productModel');
+const { getProductsByCategory } = require('../services/productService');
  
 // 📂 Mostrar productos por categoría
 const getByCategory = (req, res) => {
-    const category = req.params.category.toLowerCase();
-    const filtered = products.filter(p => p.category === category);
- 
-    res.render('pages/category', { category, products: filtered });
+    const category = req.params.category;
+    const products = getProductsByCategory(category);
+    res.render('pages/category', { category, products });
 };
  
 module.exports = { getByCategory };

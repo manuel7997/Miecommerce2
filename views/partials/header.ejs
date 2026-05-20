@@ -8,18 +8,24 @@
         </div>
 
         <!-- Buscador -->
-        <div class="search-bar">
-            <input type="text" placeholder="Buscar botines...">
-            <button>🔍</button>
-        </div>
+        <form class="search-bar" action="/search" method="GET">
+            <input type="text" name="query" placeholder="Buscar botines..." value="<%= typeof query !== 'undefined' ? query : '' %>">
+            <button type="submit">🔍</button>
+        </form>
 
         <!-- Navegación -->
         <ul class="nav-links">
             <li><a href="/">Inicio</a></li>
             <li><a href="/register">Registro</a></li>
             <li><a href="/login">Login</a></li>
-            <li><a href="/cart">Carrito</a></li>
+            <li>
+                <a href="/cart" class="cart-link">
+                    🛒
+                    <span class="cart-badge"><%= cartCount %></span>
+                </a>
+            </li>
         </ul>
 
     </nav>
 </header>
+

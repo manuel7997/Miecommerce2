@@ -1,43 +1,36 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Botines Store</title>
-    <link rel="stylesheet" href="/css/styles.css">
-</head>
-<body>
+<h1>Bienvenido a Botines Store ⚽</h1>
 
-<%- include('../partials/header') %>
+<!-- 🔃 Ordenamiento por precio -->
+<div class="sort-controls">
+    <span>Ordenar por precio:</span>
+    <a href="/?sort=asc" class="btn-sort <%= sort === 'asc' ? 'btn-sort--active' : '' %>">⬆️ Menor a mayor</a>
+    <a href="/?sort=desc" class="btn-sort <%= sort === 'desc' ? 'btn-sort--active' : '' %>">⬇️ Mayor a menor</a>
+    <% if (sort) { %>
+        <a href="/" class="btn-sort btn-sort--clear">✖ Quitar orden</a>
+    <% } %>
+</div>
 
-<main>
-    <h1>Bienvenido a Botines Store ⚽</h1>
+<!-- ✨ Te puede interesar -->
+<section class="products">
+    <h2>✨ Te puede interesar</h2>
+    <div class="product-list">
+        <% products.forEach(product => { %>
+            <%- include('../partials/productCard', { product }) %>
+        <% }) %>
+    </div>
+</section>
 
-    <!-- ✨ Te puede interesar -->
-    <section class="products">
-        <h2>✨ Te puede interesar</h2>
+<!-- 🔥 Los más pedidos -->
+<section class="products">
+    <h2>🔥 Los más pedidos</h2>
+    <% if (featured.length > 0) { %>
         <div class="product-list">
-            <% products.forEach(product => { %>
+            <% featured.forEach(product => { %>
                 <%- include('../partials/productCard', { product }) %>
             <% }) %>
         </div>
-    </section>
+    <% } else { %>
+        <p>No hay productos destacados por el momento.</p>
+    <% } %>
+</section>
 
-    <!-- 🔥 Los más pedidos -->
-    <section class="products">
-        <h2>🔥 Los más pedidos</h2>
-        <% if (featured.length > 0) { %>
-            <div class="product-list">
-                <% featured.forEach(product => { %>
-                    <%- include('../partials/productCard', { product }) %>
-                <% }) %>
-            </div>
-        <% } else { %>
-            <p>No hay productos destacados por el momento.</p>
-        <% } %>
-    </section>
-</main>
-
-<%- include('../partials/footer') %>
-
-</body>
-</html>

@@ -1,4 +1,4 @@
-    [
+[
     {
         "id": 1,
         "name": "Nike Mercurial",
@@ -6,7 +6,8 @@
         "images": ["/img/nikemercurial.jpg"],
         "description": "Botines livianos ideales para velocidad.",
         "featured": true,
-        "category": "Nike"
+        "category": "Nike",
+        "stock": 5
     },
     {
         "id": 2,
@@ -15,7 +16,8 @@
         "images": ["/img/adidaspredator.jpg"],
         "description": "Control total y precisión en cada pase.",
         "featured": true,
-        "category": "Adidas"
+        "category": "Adidas",
+        "stock": 0
     },
     {
         "id": 3,
@@ -24,7 +26,8 @@
         "images": ["/img/pumafuture.jpg"],
         "description": "Comodidad y ajuste perfecto.",
         "featured": false,
-        "category": "Puma"
+        "category": "Puma",
+        "stock": 3
     },
     {
         "id": 4,
@@ -33,7 +36,8 @@
         "images": ["/img/niketiempo.jpg"],
         "description": "Precisión y control en cada toque.",
         "featured": false,
-        "category": "Nike"
+        "category": "Nike",
+        "stock": 0
     },
     {
         "id": 5,
@@ -42,7 +46,8 @@
         "images": ["/img/adidascopa.jpg"],
         "description": "Clásico y elegante, ideal para césped natural.",
         "featured": false,
-        "category": "Adidas"
+        "category": "Adidas",
+        "stock": 8
     },
     {
         "id": 6,
@@ -51,6 +56,7 @@
         "images": ["/img/pumaborussia.jpg"],
         "description": "Máxima velocidad y agarre en superficies duras.",
         "featured": false,
-        "category": "Puma"
+        "category": "Puma",
+        "stock": 0
     }
-];
+]

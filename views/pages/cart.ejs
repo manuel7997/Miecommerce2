@@ -1,15 +1,4 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Carrito</title>
-    <link rel="stylesheet" href="/css/styles.css">
-</head>
-<body>
-
-<%- include('../partials/header') %>
-
-<main class="cart-container">
+<section class="cart-container">
     <h1>🛒 Tu carrito</h1>
 
     <% if (cartItems.length > 0) { %>
@@ -21,7 +10,6 @@
                     alt="<%= item.name %>"
                     onerror="this.src='/img/fallback.jpg'"
                 >
-
                 <div class="cart-item-info">
                     <h3><%= item.name %></h3>
                     <p>Precio unitario: $<%= item.price %></p>
@@ -54,9 +42,4 @@
         </div>
 
     <% } %>
-</main>
-
-<%- include('../partials/footer') %>
-
-</body>
-</html>
+</section>
