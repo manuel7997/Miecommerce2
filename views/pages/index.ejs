@@ -7,20 +7,33 @@
 </head>
 <body>
 
-    <!-- Header -->
-    <%- include('../partials/header') %>
+<%- include('../partials/header') %>
 
-   <main>
+<main>
     <h1>Bienvenido a Botines Store ⚽</h1>
 
+    <!-- ✨ Te puede interesar -->
     <section class="products">
-        <h2>Productos destacados</h2>
-
+        <h2>✨ Te puede interesar</h2>
         <div class="product-list">
             <% products.forEach(product => { %>
                 <%- include('../partials/productCard', { product }) %>
             <% }) %>
         </div>
+    </section>
+
+    <!-- 🔥 Los más pedidos -->
+    <section class="products">
+        <h2>🔥 Los más pedidos</h2>
+        <% if (featured.length > 0) { %>
+            <div class="product-list">
+                <% featured.forEach(product => { %>
+                    <%- include('../partials/productCard', { product }) %>
+                <% }) %>
+            </div>
+        <% } else { %>
+            <p>No hay productos destacados por el momento.</p>
+        <% } %>
     </section>
 </main>
 

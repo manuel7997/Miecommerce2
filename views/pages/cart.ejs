@@ -10,34 +10,50 @@
 <%- include('../partials/header') %>
 
 <main class="cart-container">
-
     <h1>🛒 Tu carrito</h1>
 
-    <% if (cart.length > 0) { %>
+    <% if (cartItems.length > 0) { %>
 
-        <% cart.forEach(function(product, index) { %>
-
+        <% cartItems.forEach(function(item) { %>
             <div class="cart-item">
-                <img src="<%= product.img %>" alt="<%= product.name %>">
+                <img
+                    src="<%= (item.images && item.images[0]) ? item.images[0] : '/img/fallback.jpg' %>"
+                    alt="<%= item.name %>"
+                    onerror="this.src='/img/fallback.jpg'"
+                >
 
-                <div>
-                    <h3><%= product.name %></h3>
-                    <p>$<%= product.price %></p>
+                <div class="cart-item-info">
+                    <h3><%= item.name %></h3>
+                    <p>Precio unitario: $<%= item.price %></p>
+                    <p>Subtotal: $<%= item.subtotal %></p>
 
-                    <a href="/remove-from-cart/<%= index %>">
-                        ❌ Quitar
-                    </a>
+                    <div class="quantity-controls">
+                        <a href="/cart/decrease/<%= item.id %>" class="btn-qty">➖</a>
+                        <span class="quantity"><%= item.quantity %></span>
+                        <a href="/cart/increase/<%= item.id %>" class="btn-qty">➕</a>
+                        <a href="/cart/remove/<%= item.id %>" class="btn-remove">❌ Quitar</a>
+                    </div>
                 </div>
             </div>
-
         <% }) %>
+
+        <div class="cart-total">
+            <h2>Total: $<%= total %></h2>
+        </div>
+
+        <div class="cart-actions">
+            <a href="/cart/clear" class="btn btn-clear">🗑️ Vaciar carrito</a>
+            <a href="/checkout" class="btn">💳 Finalizar compra</a>
+        </div>
 
     <% } else { %>
 
-        <p>El carrito está vacío</p>
+        <div class="cart-empty">
+            <p>😢 Tu carrito está vacío</p>
+            <a href="/" class="btn">⬅️ Volver al inicio</a>
+        </div>
 
     <% } %>
-
 </main>
 
 <%- include('../partials/footer') %>

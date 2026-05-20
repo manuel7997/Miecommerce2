@@ -11,19 +11,36 @@
 
 <main class="product-detail">
 
+    <!-- Detalle principal -->
     <div class="product-container">
-        <img src="<%= product.img %>" alt="<%= product.name %>">
-
+        <img
+            src="<%= (product.images && product.images[0]) ? product.images[0] : '/img/fallback.jpg' %>"
+            alt="<%= product.name %>"
+            onerror="this.src='/img/fallback.jpg'"
+        >
         <div class="info">
+            <a href="/categories/<%= product.category %>" class="product-category"><%= product.category %></a>
             <h1><%= product.name %></h1>
             <p class="price">$<%= product.price %></p>
             <p><%= product.description %></p>
-
-            <a href="/add-to-cart/<%= product.id %>" class="btn">
-    🛒 Agregar al carrito
-</a>
+            <a href="/add-to-cart/<%= product.id %>" class="btn">🛒 Agregar al carrito</a>
         </div>
     </div>
+
+    <!-- Productos relacionados -->
+    <section class="related-section">
+        <h2>Productos relacionados</h2>
+
+        <% if (related.length > 0) { %>
+            <div class="product-list">
+                <% related.forEach(product => { %>
+                    <%- include('../partials/productCard', { product }) %>
+                <% }) %>
+            </div>
+        <% } else { %>
+            <p class="no-related">No hay productos relacionados disponibles por el momento.</p>
+        <% } %>
+    </section>
 
 </main>
 

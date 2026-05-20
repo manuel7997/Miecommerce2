@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Categoría: <%= category %></title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+<%- include('../partials/header') %>
+
+<main class="products">
+    <h1>Categoría: <span class="category-title"><%= category %></span></h1>
+
+    <% if (products.length > 0) { %>
+        <div class="product-list">
+            <% products.forEach(product => { %>
+                <%- include('../partials/productCard', { product }) %>
+            <% }) %>
+        </div>
+    <% } else { %>
+        <div class="cart-empty">
+            <p>😕 No hay productos en esta categoría.</p>
+            <a href="/" class="btn">⬅️ Volver al inicio</a>
+        </div>
+    <% } %>
+</main>
+
+<%- include('../partials/footer') %>
+
+</body>
+</html>

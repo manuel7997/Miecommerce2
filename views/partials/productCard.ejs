@@ -1,9 +1,10 @@
 <div class="product-card">
-    <img src="<%= product.img %>" alt="<%= product.name %>">
-
+    <img
+        src="<%= (product.images && product.images[0]) ? product.images[0] : '/img/fallback.jpg' %>"
+        alt="<%= product.name %>"
+        onerror="this.src='/img/fallback.jpg'"
+    >
     <h3><%= product.name %></h3>
-
     <p class="price">$<%= product.price %></p>
-
     <a href="/product/<%= product.id %>" class="btn">Ver producto</a>
 </div>
